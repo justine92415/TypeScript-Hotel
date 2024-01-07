@@ -43,7 +43,7 @@ h6 {
   @apply font-bold tracking-[5%] leading-[1.2];
 }
 
-.text-bigtitle{
+.text-bigtitle {
   @apply text-[6.25rem] font-bold leading-[1.2];
 }
 .text-title {
@@ -60,4 +60,89 @@ h6 {
 }
 .text-tiny {
   @apply text-xs;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+@font-face {
+  font-family: "icomoon";
+  src: url("assets/fonts/icomoon.eot?isqqbe");
+  src: url("assets/fonts/icomoon.eot?isqqbe#iefix") format("embedded-opentype"),
+    url("assets/fonts/icomoon.ttf?isqqbe") format("truetype"),
+    url("assets/fonts/icomoon.woff?isqqbe") format("woff"),
+    url("assets/fonts/icomoon.svg?isqqbe#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  // line-height: 1;
+  size: 100px;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply text-2xl leading-6;
+}
+
+.icon-ic_profile:before {
+  content: "\e900";
+}
+.icon-ic_bed:before {
+  content: "\e901";
+}
+.icon-ic_menu:before {
+  content: "\e902";
+}
+.icon-ic_arrow_right:before {
+  content: "\e903";
+}
+.icon-ic_close:before {
+  content: "\e904";
+}
+.icon-ic_arrow_left:before {
+  content: "\e905";
+}
+.icon-ic_person:before {
+  content: "\e906";
+}
+.icon-ic_right:before {
+  content: "\e907";
+}
+.icon-ic_up:before {
+  content: "\e908";
+}
+.icon-ic_down:before {
+  content: "\e909";
+}
+.icon-ic_left:before {
+  content: "\e90a";
+}
+.icon-ic_check:before {
+  content: "\e90b";
+}
+.icon-ic_size:before {
+  content: "\e90c";
+}
+.icon-bi_line:before {
+  content: "\e90d";
+}
+.icon-ic_luxurycar:before {
+  content: "\e90e";
+}
+.icon-ic_train:before {
+  content: "\e90f";
+}
+.icon-ic_car:before {
+  content: "\e910";
 }
