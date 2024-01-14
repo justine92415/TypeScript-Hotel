@@ -5,6 +5,7 @@ import { ButtonComponent } from '../../components/button/button.component';
 import { SelectComponent } from '../../components/select/select.component';
 import { CheckboxComponent } from '../../components/checkbox/checkbox.component';
 import { InputComponent } from '../../components/input/input.component';
+import { StepperComponent } from '../../components/stepper/stepper.component';
 
 @Component({
   selector: 'app-components-demo',
@@ -15,6 +16,7 @@ import { InputComponent } from '../../components/input/input.component';
     SelectComponent,
     CheckboxComponent,
     InputComponent,
+    StepperComponent,
   ],
   templateUrl: './components-demo.component.html',
   styleUrl: './components-demo.component.scss',
