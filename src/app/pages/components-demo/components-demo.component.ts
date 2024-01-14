@@ -1,3 +1,4 @@
+import { Icon } from './../../model/icon';
 import { Component } from '@angular/core';
 import { ButtonHeroComponent } from '../../components/button-hero/button-hero.component';
 import { ButtonComponent } from '../../components/button/button.component';
@@ -8,10 +9,18 @@ import { InputComponent } from '../../components/input/input.component';
 @Component({
   selector: 'app-components-demo',
   standalone: true,
-  imports: [ButtonHeroComponent,ButtonComponent,SelectComponent,CheckboxComponent,InputComponent],
+  imports: [
+    ButtonHeroComponent,
+    ButtonComponent,
+    SelectComponent,
+    CheckboxComponent,
+    InputComponent,
+  ],
   templateUrl: './components-demo.component.html',
-  styleUrl: './components-demo.component.scss'
+  styleUrl: './components-demo.component.scss',
 })
 export class ComponentsDemoComponent {
-
+  get Icon(): typeof Icon {
+    return Icon;
+  }
 }

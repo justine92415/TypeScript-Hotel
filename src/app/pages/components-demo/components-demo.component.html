@@ -1,6 +1,28 @@
 <div class="w-full h-screen bg-black-10">
-  <!-- <app-button-hero></app-button-hero> -->
-  <!-- <app-button></app-button> -->
+  <app-button-hero class="ml-10 mb-10"></app-button-hero>
+  <div class="flex">
+    <div>
+      <app-button class="ml-10 mb-10" [buttonType]="'primary'"></app-button>
+      <app-button class="ml-10 mb-10" [iconName]="Icon.Menu" [buttonType]="'primary'"></app-button>
+      <app-button class="ml-10 mb-10" [buttonType]="'primary'" [disabled]="true"></app-button>
+    </div>
+    <div>
+      <app-button class="ml-10 mb-10" [buttonType]="'secondary'"></app-button>
+      <app-button class="ml-10 mb-10" [iconName]="Icon.Menu" [buttonType]="'secondary'"></app-button>
+      <app-button class="ml-10 mb-10" [buttonType]="'secondary'" [disabled]="true"></app-button>
+    </div>
+    <div>
+      <app-button class="ml-10 mb-10" [buttonType]="'ghost'"></app-button>
+      <app-button class="ml-10 mb-10" [iconName]="Icon.Menu" [buttonType]="'ghost'"></app-button>
+      <app-button class="ml-10 mb-10" [buttonType]="'ghost'" [disabled]="true"></app-button>
+    </div>
+    <div>
+      <app-button class="ml-10 mb-10" [buttonType]="'text'"></app-button>
+      <app-button class="ml-10 mb-10" [buttonType]="'text'" [disabled]="true"></app-button>
+    </div>
+  </div>
+
+
   <app-select class="w-[343px] ml-10 mb-10"></app-select>
   <app-checkbox class="ml-10 mb-10"></app-checkbox>
   <app-input class="w-[343px] ml-10 mb-10"></app-input>
