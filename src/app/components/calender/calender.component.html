@@ -1,0 +1,50 @@
+<div class="flex items-center gap-[3.75rem]">
+  <div class="w-[19.25rem] h-[19.75rem]">
+    <div class="flex mb-2">
+      <span class="icon-ic_left cursor-pointer" (click)="onClickPreMounth()"></span>
+      <div class="w-full flex justify-center">
+        <p class="text-xl leading-6 font-bold tracking-[1px]">{{ currentYear() }} 年 {{ currentMonth() }} 月</p>
+      </div>
+    </div>
+    <div class="w-full flex mb-1">
+      @for (day of daysOfWeek; track $index) {
+        <div class="pt-3 px-[0.875rem] pb-2">
+          <p class="text-center text-base font-medium">{{ day }}</p>
+        </div>
+      }
+    </div>
+    @for(week of dates; track $index) {
+      <div class="w-full justify-between flex mb-1">
+        @for(days of week; track $index) {
+          <div class="w-full px-3 pt-2 pb-4 h-11 text-center" [ngClass]="{ 'bg-black rounded-[100px] text-white': false }">
+            {{ days }}
+          </div>
+        }
+      </div>
+    }
+  </div>
+  <div class="w-[19.25rem] h-[19.75rem]">
+    <div class="flex mb-2">
+      <div class="w-full flex justify-center">
+        <p class="text-xl leading-6 font-bold tracking-[1px]">{{ nextYear() }} 年 {{ nextMounth() }} 月</p>
+      </div>
+      <span class="icon-ic_right cursor-pointer" (click)="onNextMounth()"></span>
+    </div>
+    <div class="w-full flex mb-1">
+      @for (day of daysOfWeek; track $index) {
+        <div class="pt-3 px-[0.875rem] pb-2">
+          <p class="text-center text-base font-medium">{{ day }}</p>
+        </div>
+      }
+    </div>
+    @for(week of dates2; track $index) {
+      <div class="w-full justify-between flex mb-1">
+        @for(days of week; track $index) {
+          <div class="w-full px-3 pt-2 pb-4 h-11 text-center" [ngClass]="{ 'bg-black rounded-[100px] text-white': false }">
+            {{ days }}
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>
