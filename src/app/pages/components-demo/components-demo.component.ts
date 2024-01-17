@@ -7,6 +7,7 @@ import { CheckboxComponent } from '../../components/checkbox/checkbox.component'
 import { InputComponent } from '../../components/input/input.component';
 import { StepperComponent } from '../../components/stepper/stepper.component';
 import { CalenderComponent } from '../../components/calender/calender.component';
+import { DatePickerInputComponent } from '../../components/date-picker-input/date-picker-input.component';
 
 @Component({
   selector: 'app-components-demo',
@@ -18,7 +19,8 @@ import { CalenderComponent } from '../../components/calender/calender.component'
     CheckboxComponent,
     InputComponent,
     StepperComponent,
-    CalenderComponent
+    CalenderComponent,
+    DatePickerInputComponent
   ],
   templateUrl: './components-demo.component.html',
   styleUrl: './components-demo.component.scss',
