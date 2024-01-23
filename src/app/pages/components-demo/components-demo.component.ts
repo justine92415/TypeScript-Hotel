@@ -8,6 +8,7 @@ import { InputComponent } from '../../components/input/input.component';
 import { StepperComponent } from '../../components/stepper/stepper.component';
 import { CalenderComponent } from '../../components/calender/calender.component';
 import { DatePickerInputComponent } from '../../components/date-picker-input/date-picker-input.component';
+import { DatePickerComponent } from '../../components/date-picker/date-picker.component';
 
 @Component({
   selector: 'app-components-demo',
@@ -20,7 +21,8 @@ import { DatePickerInputComponent } from '../../components/date-picker-input/dat
     InputComponent,
     StepperComponent,
     CalenderComponent,
-    DatePickerInputComponent
+    DatePickerInputComponent,
+    DatePickerComponent,
   ],
   templateUrl: './components-demo.component.html',
   styleUrl: './components-demo.component.scss',
