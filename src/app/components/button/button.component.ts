@@ -12,4 +12,11 @@ export class ButtonComponent {
   @Input() buttonType: 'primary' | 'secondary' | 'ghost' | 'text' = 'primary';
   @Input() iconName?: Icon;
   @Input() disabled = false;
+
+  buttonClass = {
+    primary: 'btn-primary',
+    secondary: 'btn-secondary',
+    ghost: 'btn-ghost',
+    text: 'btn-text',
+  };
 }
