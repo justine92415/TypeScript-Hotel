@@ -1,17 +1,21 @@
-<div class="w-[46.25rem] p-8 rounded-[1.25rem]">
-  <div class="flex items-center justify-between mb-10">
-    <div>
-      <p class="text-2xl leading-[28.80px] tracking-[1.2px] text-black font-bold mb-2">Title</p>
-      <div class="flex items-center">
-        <p class="text-black-80 text-base font-medium tracking-[0.32px]">2023/ 12 / 03</p>
-        <p class="text-black-80 text-base font-medium tracking-[0.32px]">-</p>
-        <p class="text-black-80 text-base font-medium tracking-[0.32px]">2023/ 12 / 04</p>
+<div class="flex items-center gap-2 relative z-20">
+  <app-date-picker-input class="w-[12.25rem] relative z-20" [title]="'title'" (click)="onClickDatePicker()"></app-date-picker-input>
+  <app-date-picker-input class="w-[12.25rem] relative z-20" [title]="'title'" (click)="onClickDatePicker()"></app-date-picker-input>
+  @if(isOpen){
+    <div class="w-[46.25rem] p-8 rounded-[1.25rem] bg-white absolute top-[-32px] right-[-32px] z-10">
+      <div class="flex items-center justify-between mb-10">
+        <div>
+          <p class="text-2xl leading-[28.80px] tracking-[1.2px] text-black font-bold mb-2">Title</p>
+          <div class="flex items-center">
+            <p class="text-black-80 text-base font-medium tracking-[0.32px]">2023/ 12 / 03</p>
+            <p class="text-black-80 text-base font-medium tracking-[0.32px]">-</p>
+            <p class="text-black-80 text-base font-medium tracking-[0.32px]">2023/ 12 / 04</p>
+          </div>
+        </div>
       </div>
+      <app-calender></app-calender>
     </div>
-    <div class="flex items-center gap-2">
-      <app-date-picker-input class="w-[12.25rem]" [title]="'title'"></app-date-picker-input>
-      <app-date-picker-input class="w-[12.25rem]" [title]="'title'"></app-date-picker-input>
-    </div>
-  </div>
-  <app-calender></app-calender>
+  }
 </div>
+<div class="mask"></div>
+

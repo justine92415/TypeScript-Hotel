@@ -10,5 +10,8 @@ import { CalenderComponent } from '../calender/calender.component';
   styleUrl: './date-picker.component.scss'
 })
 export class DatePickerComponent {
-
+  isOpen = false;
+  onClickDatePicker() {
+    this.isOpen = !this.isOpen;
+  }
 }
