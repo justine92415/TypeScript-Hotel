@@ -19,6 +19,10 @@ export const routes: Routes = [
         path: 'home',
         loadComponent: () => import('./pages/home-page/home-page.component'),
       },
+      {
+        path: 'rooms',
+        loadComponent: () => import('./pages/rooms-page/rooms-page.component'),
+      }
     ],
   },
   {

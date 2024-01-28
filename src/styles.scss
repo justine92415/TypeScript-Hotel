@@ -168,3 +168,9 @@ h6 {
 .cdk-overlay-container {
   z-index: 99 !important;
 }
+
+.lineargradient-border {
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(0.25turn, #be9c7c, #fff);
+  border-image-slice: 1;
+}
