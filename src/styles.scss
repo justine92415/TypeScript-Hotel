@@ -97,6 +97,13 @@ h6 {
   @apply text-2xl leading-6;
 }
 
+.icon-size-lg {
+  @apply text-[5rem] leading-[5rem];
+}
+
+.icon-ic_instagram:before {
+  content: "\e911";
+}
 .icon-ic_profile:before {
   content: "\e900";
 }
@@ -136,7 +143,7 @@ h6 {
 .icon-ic_size:before {
   content: "\e90c";
 }
-.icon-bi_line:before {
+.icon-ic_line:before {
   content: "\e90d";
 }
 .icon-ic_luxurycar:before {

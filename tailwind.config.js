@@ -29,6 +29,16 @@ module.exports = {
         "black-10": "#F9F9F9",
       },
     },
+    container:{
+      center:true,
+      screens: {
+        sm: '600px',
+        md: '728px',
+        lg: '984px',
+        xl: '1240px',
+        '2xl': '1296px',
+      },
+    }
   },
   plugins: [],
 };

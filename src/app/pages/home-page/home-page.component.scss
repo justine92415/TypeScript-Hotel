@@ -1,0 +1,30 @@
+.about {
+  background-image: url("/assets/images/desktop/about.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 42rem;
+  position: relative;
+}
+
+.banner {
+  background-image: url("/assets/images/desktop/banner.png");
+  height: 100vh;
+  position: relative;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.lineargradient-border {
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(0.25turn, #be9c7c, #fff);
+  border-image-slice: 1;
+}
