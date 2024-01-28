@@ -1,1 +1,26 @@
-<p>login-page works!</p>
+<header class="px-20 py-6 bg-black">
+  <img class="w-[12.25rem] h-[4.5rem]" src="/assets/images/desktop/logo.png" alt="" />
+</header>
+<div class="bg-black relative overflow-x-hidden">
+  <img class="w-[67.5rem] h-[11.75rem] absolute top-[4.5rem] right-0 translate-x-[250px] z-10" src="/assets/images/desktop/line2.png" alt="">
+  <div class="flex items-center relative z-20">
+    <img class="w-[60rem] h-full" src="/assets/images/desktop/register.png" alt="" />
+    <div class="w-[26rem]  mx-auto">
+      <p class="text-title text-primary-base mb-2">享樂酒店，誠摯歡迎</p>
+      <h1 class="text-white mb-10">立即開始旅程</h1>
+      <div class="flex flex-col gap-4 mb-10">
+        <app-input [title]="'電子信箱'" [placeholder]="'hello@exsample.com'"></app-input>
+        <app-input [title]="'密碼'" [placeholder]="'請輸入密碼'"></app-input>
+        <div class="flex justify-between items-center">
+          <app-checkbox>記住帳號</app-checkbox>
+          <app-button [buttonType]="'text'">忘記密碼？</app-button>
+        </div>
+      </div>
+      <app-button class="mb-10" [disabled]="true">會員登入</app-button>
+      <div class="flex items-center gap-2">
+        <p class="text-white">沒有會員嗎？</p>
+        <app-button [buttonType]="'text'">前往註冊</app-button>
+      </div>
+    </div>
+  </div>
+</div>

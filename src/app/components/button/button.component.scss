@@ -3,7 +3,7 @@
 }
 
 .btn-primary {
-  @apply py-4 px-8 flex gap-1 items-center rounded-lg text-white bg-primary-base hover:bg-primary-dark transition-all disabled:bg-transparent disabled:text-black-60
+  @apply py-4 px-8 flex gap-1 items-center rounded-lg text-white bg-primary-base hover:bg-primary-dark transition-all disabled:bg-black-40 disabled:text-black-60
 }
 
 .btn-secondary {

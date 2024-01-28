@@ -36,6 +36,10 @@ export const routes: Routes = [
     ]
   },
   {
+    path: 'components',
+    loadComponent: () => import('./pages/components-demo/components-demo.component').then((m) => m.ComponentsDemoComponent),
+  },
+  {
     path: 'guideline',
     loadComponent: () => import('./pages/guideline/guideline.component').then((m) => m.GuidelineComponent),
   },
