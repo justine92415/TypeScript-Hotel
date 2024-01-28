@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,4 +18,11 @@ import { ButtonComponent } from '../button/button.component';
   `,
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {}
+export class HeaderComponent implements OnInit{
+  currentPage!: string;
+  route = inject(ActivatedRoute);
+
+  ngOnInit(): void {
+
+  }
+}

@@ -4,11 +4,11 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
-  selector: 'app-layout1',
+  selector: 'app-layout',
   standalone: true,
   imports: [RouterOutlet,HeaderComponent,FooterComponent],
-  templateUrl: './layout1.component.html',
-  styleUrl: './layout1.component.scss'
+  templateUrl: './layout.component.html',
+  styleUrl: './layout.component.scss'
 })
 export default class Layout1Component {
 
