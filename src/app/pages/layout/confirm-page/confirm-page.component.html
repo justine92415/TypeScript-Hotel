@@ -1,0 +1,254 @@
+<div class="py-[12.5rem] bg-primary-tint">
+  <div class="container">
+    <div class="flex items-center gap-2 mb-10">
+      <span class="icon-ic_left"></span>
+      <h3>確認訂房資訊</h3>
+    </div>
+    <div class="flex justify-between gap-6 relative">
+      <div class="w-[46.625rem]">
+        <div class="flex flex-col gap-6">
+          <h3 class="mb-10">訂房資訊</h3>
+          <div class="flex flex-col gap-6">
+            <div class="flex justify-between items-center gap-4">
+              <div>
+                <div class="flex gap-3 items-center mb-2">
+                  <div class="w-1 h-6 relative bg-primary-base rounded-[0.75rem]"></div>
+                  <p class="text-title">選擇房型</p>
+                </div>
+                <p>尊爵雙人房</p>
+              </div>
+              <app-button class="text-black" [buttonType]="'text'">編輯</app-button>
+            </div>
+            <div class="flex justify-between items-center gap-4">
+              <div>
+                <div class="flex gap-3 items-center mb-2">
+                  <div class="w-1 h-6 relative bg-primary-base rounded-[0.75rem]"></div>
+                  <p class="text-title">訂房日期</p>
+                </div>
+                <p class="mb-2">入住：12 月 4 日星期二</p>
+                <p>退房：12 月 6 日星期三</p>
+              </div>
+              <app-button class="text-black" [buttonType]="'text'">編輯</app-button>
+            </div>
+            <div class="flex justify-between items-center gap-4">
+              <div>
+                <div class="flex gap-3 items-center mb-2">
+                  <div class="w-1 h-6 relative bg-primary-base rounded-[0.75rem]"></div>
+                  <p class="text-title">房客人數</p>
+                </div>
+                <p>2 人</p>
+              </div>
+              <app-button class="text-black" [buttonType]="'text'">編輯</app-button>
+            </div>
+          </div>
+        </div>
+        <div class="w-full my-[2.9375rem] border border-solid text-black-60"></div>
+        <div>
+          <div class="flex justify-between items-center mb-10">
+            <h4>訂房人資訊</h4>
+            <app-button class="text-primary-base" [buttonType]="'text'">套用會員資料</app-button>
+          </div>
+          <div class="flex flex-col gap-6">
+            <app-input class="text-black" [title]="'姓名'" [placeholder]="'請輸入姓名'"></app-input>
+            <app-input class="text-black" [title]="'手機號碼'" [placeholder]="'請輸入手機號碼'"></app-input>
+            <app-input class="text-black" [title]="'電子信箱'" [placeholder]="'請輸入電子信箱'"></app-input>
+          </div>
+          <div>
+            <p class="text-white font-bold mb-2">地址</p>
+            <div class="flex gap-2 mb-4">
+              <app-select class="w-1/2"></app-select>
+              <app-select class="w-1/2"></app-select>
+            </div>
+            <app-input class="text-white" [placeholder]="'請輸入詳細地址'"></app-input>
+          </div>
+        </div>
+        <div class="w-full my-[2.9375rem] border border-solid text-black-60"></div>
+        <div>
+          <h4 class="mb-10">房間資訊</h4>
+          <div class="flex flex-col gap-6">
+            <div class="flex gap-3 items-center">
+              <div class="w-1 h-6 relative bg-primary-base rounded-[0.75rem]"></div>
+              <h5>房型基本資訊</h5>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-[6.0625rem] flex flex-col gap-2 px-4 py-[1.28125rem] bg-white rounded-lg">
+                <span class="icon-ic_size text-primary-base"></span>
+                <p class="text-title">24 坪</p>
+              </div>
+              <div class="w-[6.0625rem] flex flex-col gap-2 px-4 py-[1.28125rem] bg-white rounded-lg">
+                <span class="icon-ic_bed text-primary-base"></span>
+                <p class="text-title">1 張大床</p>
+              </div>
+              <div class="w-[6.0625rem] flex flex-col gap-2 px-4 py-[1.28125rem] bg-white rounded-lg">
+                <span class="icon-ic_person text-primary-base"></span>
+                <p class="text-title">2-4 人</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col gap-6">
+            <div class="flex gap-3 items-center">
+              <div class="w-1 h-6 relative bg-primary-base rounded-[0.75rem]"></div>
+              <h5>房間格局</h5>
+            </div>
+            <div class="w-full p-6 bg-white rounded-lg">
+              <div class="w-[34.375rem] flex flex-wrap items-center gap-10">
+                <div class="flex items-center gap-2">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>市景</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>獨立衛浴</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>客廳</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>書房</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>樓層電梯</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-6">
+            <div class="flex gap-3 items-center">
+              <div class="w-1 h-6 relative bg-primary-base rounded-[0.75rem]"></div>
+              <h5>房內設備</h5>
+            </div>
+            <div class="w-full p-6 bg-white rounded-lg">
+              <div class="w-[40.625rem] flex flex-wrap gap-y-2 items-center gap-10">
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>平面電視</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>吹風機</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>冰箱</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>熱水壺</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>檯燈</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>衣櫃</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>除濕機</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>浴缸</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>書桌</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>音響</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-6">
+            <div class="flex gap-3 items-center">
+              <div class="w-1 h-6 relative bg-primary-base rounded-[0.75rem]"></div>
+              <h5>備品提供</h5>
+            </div>
+            <div class="w-full p-6 bg-white rounded-lg">
+              <div class="w-[40.625rem] flex flex-wrap gap-y-2 items-center gap-10">
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>衛生紙</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>拖鞋</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>沐浴用品</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>清潔用品</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>刮鬍刀</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>吊衣架</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>浴巾</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>刷牙用品</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>罐裝水</p>
+                </div>
+                <div class="flex items-center gap-2 min-w-[6.125rem]">
+                  <span class="icon-ic_check text-primary-base"></span>
+                  <p>梳子</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="sticky flex flex-col gap-10 top-[2.5rem] w-[29.875rem] h-[42.375rem] bg-white rounded-[1.25rem] p-10 shadow-md"
+      >
+        <img class="h-[17rem] rounded-lg" src="/assets/images/desktop/room2-1.png" alt="" />
+        <div class="flex flex-col gap-6">
+          <h4>價格詳情</h4>
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <div class="flex items-center gap-2">
+                <p>NT$ 10,000</p>
+                <div class="flex items-center gap-1">
+                  <span class="icon-ic_close icon-size-sm"></span>
+                  <p>2 晚</p>
+                </div>
+              </div>
+              <p>NT$ 20,000</p>
+            </div>
+            <div class="flex justify-between items-center">
+              <p>住宿折扣</p>
+              <p class="text-primary-base">-NT$ 1,000</p>
+            </div>
+            <div class="w-full my-6 border border-solid text-black-60"></div>
+            <div class="flex justify-between items-center">
+              <p class="text-title">總價</p>
+              <p class="text-title">NT$ 19,000</p>
+            </div>
+          </div>
+        </div>
+        <app-button>確認訂房</app-button>
+      </div>
+    </div>
+  </div>
+</div>

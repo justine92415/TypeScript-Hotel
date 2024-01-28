@@ -101,6 +101,10 @@ h6 {
   @apply text-[5rem] leading-[5rem];
 }
 
+.icon-size-sm {
+  @apply text-base leading-[1rem];
+}
+
 .icon-ic_minus:before {
   content: "\e912";
 }
