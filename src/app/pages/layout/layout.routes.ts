@@ -22,6 +22,10 @@ export const routes: Routes = [
     path:'confirm',
     loadComponent: () => import('./confirm-page/confirm-page.component'),
   },
+  {
+    path:'success',
+    loadComponent: () => import('./success-page/success-page.component'),
+  }
 ];
 
 export default routes;
