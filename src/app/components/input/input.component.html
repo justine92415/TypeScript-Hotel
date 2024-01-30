@@ -3,6 +3,6 @@
     <p class="font-bold">{{title}}</p>
     @if(required){<p class="text-primary-base font-bold">必填</p>}
   </div>
-  <input type="text" class="outline-none w-full px-4 py-[0.9375rem] border border-[#ECECEC] rounded-lg mb-2" [placeholder]="placeholder"/>
+  <input [type]="type" class="outline-none w-full px-4 py-[0.9375rem] border border-[#ECECEC] rounded-lg mb-2" [placeholder]="placeholder"/>
   <!-- <p class="text-error-base">錯誤提示訊息</p> -->
 </div>

@@ -25,6 +25,10 @@ export const routes: Routes = [
   {
     path:'success',
     loadComponent: () => import('./success-page/success-page.component'),
+  },
+  {
+    path:'profile',
+    loadComponent: () => import('./profile-page/profile-page.component'),
   }
 ];
 
