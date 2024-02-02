@@ -3,6 +3,8 @@
     <p class="font-bold">{{title}}</p>
     @if(required){<p class="text-primary-base font-bold">必填</p>}
   </div>
-  <input [type]="type" class="outline-none w-full px-4 py-[0.9375rem] border border-[#ECECEC] rounded-lg mb-2" [placeholder]="placeholder"/>
-  <!-- <p class="text-error-base">錯誤提示訊息</p> -->
+  <input [type]="type" [formControl]="control" (blur)="onTouched()"  class="outline-none w-full px-4 py-[0.9375rem] border border-[#ECECEC] rounded-lg mb-2 placeholder-gray-500" [placeholder]="placeholder"/>
+  @if(!!formGroup.controls[name].touched && !!formGroup.controls[name].errors){
+    <p class="text-error-base"> {{ formGroup.controls[name].errors?.['errorMsg'] }} </p>
+  }
 </div>

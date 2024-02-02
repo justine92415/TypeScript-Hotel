@@ -1,18 +1,19 @@
 <div class="relative">
   <div #test class="w-full bg-white border border-gray-300 rounded-md shadow-sm" (click)="openDropdown()">
     <div class="relative z-50 flex items-center justify-between px-4 py-4">
-      <span class="text-gray-700">Label</span>
+      @if(!!currentOption()){
+        <span class="text-gray-700"> {{currentOption()?.label}} </span>
+      }@else {
+        <span class="text-gray-500"> {{placeholder}} </span>
+      }
       <span class="icon-ic_down"></span>
     </div>
     <ng-template #dropdown>
       <div class="w-full bg-white border border-gray-300 rounded-md shadow-sm" >
         <ul class="overflow-auto max-h-40">
-          <li class="px-4 py-2 hover:bg-gray-100">Option 1</li>
-          <li class="px-4 py-2 hover:bg-gray-100">Option 2</li>
-          <li class="px-4 py-2 hover:bg-gray-100">Option 3</li>
-          <li class="px-4 py-2 hover:bg-gray-100">Option 4</li>
-          <li class="px-4 py-2 hover:bg-gray-100">Option 5</li>
-          <li class="px-4 py-2 hover:bg-gray-100">Option 6</li>
+          @for(option of options;track option.value){
+            <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer" (click)="selectOption(option)">{{option.label}}</li>
+          }
         </ul>
       </div>
     </ng-template>

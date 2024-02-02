@@ -1,10 +1,11 @@
-import { Icon } from './../../../model/icon';
+
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../../../components/button/button.component';
 import { InputComponent } from '../../../components/input/input.component';
 import { SelectComponent } from '../../../components/select/select.component';
 import { NgIf } from '@angular/common';
-import { DividerComponent } from '../../../divider/divider.component';
+import { DividerComponent } from '../../../components/divider/divider.component';
+import { Icon } from '../../../model/Icon';
 
 @Component({
   selector: 'app-profile-page',

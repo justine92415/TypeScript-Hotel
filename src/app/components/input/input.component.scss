@@ -6,3 +6,7 @@ div input:focus {
   @apply border-primary-base caret-primary-base;
   box-shadow: 0px 0px 0px 4px rgba(190, 156, 124, 0.10);
 }
+
+div input {
+  @apply text-black;
+}

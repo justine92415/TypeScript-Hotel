@@ -1,4 +1,4 @@
-import { Icon } from './../../model/icon';
+
 import { Component } from '@angular/core';
 import { ButtonHeroComponent } from '../../components/button-hero/button-hero.component';
 import { ButtonComponent } from '../../components/button/button.component';
@@ -9,6 +9,7 @@ import { StepperComponent } from '../../components/stepper/stepper.component';
 import { CalenderComponent } from '../../components/calender/calender.component';
 import { DatePickerInputComponent } from '../../components/date-picker-input/date-picker-input.component';
 import { DatePickerComponent } from '../../components/date-picker/date-picker.component';
+import { Icon } from '../../model/Icon';
 
 @Component({
   selector: 'app-components-demo',

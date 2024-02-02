@@ -4,35 +4,74 @@ import {
   ElementRef,
   ViewContainerRef,
   TemplateRef,
+  WritableSignal,
+  signal,
+  Input,
+  forwardRef,
+  EventEmitter,
+  Output,
 } from '@angular/core';
-import {
-  OverlayModule,
-  Overlay,
-  OverlayConfig,
-  OverlayRef,
-} from '@angular/cdk/overlay';
+import { OverlayModule, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule, FormGroup } from '@angular/forms';
+
+export type SelectOption = {
+  label: string;
+  value: string;
+};
 
 @Component({
   selector: 'app-select',
   standalone: true,
-  imports: [OverlayModule],
+  imports: [OverlayModule, ReactiveFormsModule],
   templateUrl: './select.component.html',
   styleUrl: './select.component.scss',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SelectComponent),
+      multi: true,
+    },
+  ],
 })
-export class SelectComponent {
+export class SelectComponent implements ControlValueAccessor {
   @ViewChild('test') test!: ElementRef;
   @ViewChild('dropdown') dropdown!: TemplateRef<any>;
+  @Input() placeholder: string = '請選擇';
+  @Input({ required: false }) options: SelectOption[] = [];
+  @Input({ required: true }) formGroup!: FormGroup;
+  @Input({ required: true }) name!: string;
 
+  controlValue = new FormControl();
+  currentOption: WritableSignal<SelectOption | null> = signal(null);
   overlayRef!: OverlayRef;
 
-  constructor(
-    private overlay: Overlay,
-    private viewContainerRef: ViewContainerRef
-  ) {}
+  onTouched: any = () => {};
+  onChange: any = () => {};
+
+  constructor(private overlay: Overlay, private viewContainerRef: ViewContainerRef) {}
+
+  ngOnInit(): void {
+    this.setDefaultValue();
+
+    this.formGroup.controls[this.name].valueChanges.subscribe((value) => {
+      setTimeout(() => {
+        this.setDefaultValue();
+      }, 0);
+    });
+  }
+
+  setDefaultValue(): void {
+    const defaultValue = this.formGroup.controls[this.name].value;
+    const defaultOption = this.options.find((option) => option.value === defaultValue);
+    if (defaultOption) {
+      this.currentOption.set(defaultOption);
+    } else {
+      this.currentOption.set(null);
+    }
+  }
 
   openDropdown() {
-    console.log('我有被點擊唷');
     if (this.overlayRef && this.overlayRef.hasAttached()) {
       this.overlayRef.detach();
     } else {
@@ -59,14 +98,31 @@ export class SelectComponent {
       });
 
       this.overlayRef = this.overlay.create(overlayConfig);
-      this.overlayRef.attach(
-        new TemplatePortal(this.dropdown, this.viewContainerRef)
-      );
+      this.overlayRef.attach(new TemplatePortal(this.dropdown, this.viewContainerRef));
       this.overlayRef.backdropClick().subscribe(() => {
         this.overlayRef.detach();
       });
     }
   }
 
-  closeDropdown() {}
+  selectOption(option: SelectOption): void {
+    this.currentOption.set(option);
+    this.onChange(option.value);
+    this.onTouched();
+    this.overlayRef.detach();
+  }
+
+  // 實作 ControlValueAccessor 介面的方法
+  writeValue(selectOption: SelectOption): void {
+    // this.value = selectOption.value;
+    this.controlValue.setValue(selectOption.value);
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
 }

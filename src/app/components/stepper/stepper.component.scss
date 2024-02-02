@@ -1,3 +1,19 @@
 :host {
   @apply block;
 }
+
+.step {
+  @apply mx-auto flex items-center justify-center w-8 h-8 text-center bg-transparent border border-solid border-black-60 text-black-60  rounded-full mb-1;
+
+  &_active {
+    @apply bg-primary-base text-white;
+  }
+}
+
+.line {
+  @apply w-full h-[2px] bg-black-60 rounded-[0.625rem];
+
+  &_active {
+    @apply bg-black-40;
+  }
+}

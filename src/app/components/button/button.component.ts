@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Icon } from '../../model/icon';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Icon } from '../../model/Icon';
 
 @Component({
   selector: 'app-button',
@@ -13,10 +13,17 @@ export class ButtonComponent {
   @Input() iconName?: Icon;
   @Input() disabled = false;
 
+  @Output() clickEvent: EventEmitter<MouseEvent> = new EventEmitter();
+
   buttonClass = {
     primary: 'btn-primary',
     secondary: 'btn-secondary',
     ghost: 'btn-ghost',
     text: 'btn-text',
   };
+
+  onClick(): void {
+    if (this.disabled) return;
+    this.clickEvent.emit();
+  }
 }

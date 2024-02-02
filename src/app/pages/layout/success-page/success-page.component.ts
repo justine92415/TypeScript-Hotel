@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DividerComponent } from '../../../divider/divider.component';
+import { DividerComponent } from '../../../components/divider/divider.component';
 import { ButtonComponent } from '../../../components/button/button.component';
 
 @Component({
