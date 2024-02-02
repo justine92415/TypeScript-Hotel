@@ -1,14 +1,14 @@
-import { Component, Signal, WritableSignal, inject, signal, computed } from '@angular/core';
+import { Component, WritableSignal, inject, signal } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { CheckboxComponent } from '../../components/checkbox/checkbox.component';
 import { InputComponent } from '../../components/input/input.component';
 import { StepperComponent } from '../../components/stepper/stepper.component';
 import { SelectComponent, SelectOption } from '../../components/select/select.component';
-import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { Stepper } from '../../model/Stepper';
 import { cities } from '../../../assets/taiwan-zip-code';
-import { SignupForm } from '../../model/Form';
+import { SignupForm, SignupFormValue } from '../../model/Form';
 import {
   emailValidator,
   passwordValidator,
@@ -16,6 +16,8 @@ import {
   repetPasswordValidator,
   requiredValidator,
 } from '../../validators';
+import { RegisterService } from '../../services/register.service';
+import { SignupReq } from '../../model/Signup';
 
 @Component({
   selector: 'app-register-page',
@@ -33,7 +35,6 @@ import {
   styleUrl: './register-page.component.scss',
 })
 export default class RegisterPageComponent {
-  fb = inject(FormBuilder);
   currentStep: WritableSignal<number> = signal(1);
   stepperArray: WritableSignal<Stepper[]> = signal<Stepper[]>([
     {
@@ -50,11 +51,12 @@ export default class RegisterPageComponent {
   yearList!: SelectOption[];
   monthList!: SelectOption[];
   dayList: SelectOption[] = [];
-
   cityList!: SelectOption[];
   regionList!: SelectOption[];
-
   formGroup!: FormGroup<SignupForm>;
+
+  fb = inject(FormBuilder);
+  registerService = inject(RegisterService);
 
   ngOnInit(): void {
     this.initFormGroup();
@@ -135,22 +137,42 @@ export default class RegisterPageComponent {
 
   initFormGroup(): void {
     this.formGroup = this.fb.group<SignupForm>({
-      name: this.fb.control('', { nonNullable: true, validators: requiredValidator('請輸入姓名') }),
-      email: this.fb.control('', { nonNullable: true, validators: emailValidator() })!,
-      password: this.fb.control('', { nonNullable: true, validators: passwordValidator() }),
-      repeatPassword: this.fb.control('', { nonNullable: true }),
-      phone: this.fb.control('', { nonNullable: true, validators: phoneValidator() }),
+      name: this.fb.control('王大明', { nonNullable: true, validators: requiredValidator('請輸入姓名') }),
+      email: this.fb.control('test@gmail.com', { nonNullable: true, validators: emailValidator() })!,
+      password: this.fb.control('1qazXSW2', { nonNullable: true, validators: passwordValidator() }),
+      repeatPassword: this.fb.control('1qazXSW2', { nonNullable: true }),
+      phone: this.fb.control('0987654321', { nonNullable: true, validators: phoneValidator() }),
       year: this.fb.control('1990', { nonNullable: true }),
       month: this.fb.control('1', { nonNullable: true }),
       day: this.fb.control('1', { nonNullable: true }),
       address: this.fb.group({
         city: this.fb.control('100', { nonNullable: true }),
         zipcode: this.fb.control('104', { nonNullable: true }),
-        detail: this.fb.control('', { nonNullable: true, validators: requiredValidator('請輸入地址') }),
+        detail: this.fb.control('全家就是你家', { nonNullable: true, validators: requiredValidator('請輸入地址') }),
       }),
       isReaded: this.fb.control(false, { nonNullable: true }),
     });
 
     this.formGroup.controls.repeatPassword.setValidators(repetPasswordValidator(this.formGroup));
+  }
+
+  onSubmit(): void {
+    const { name, email, password, phone, year, month, day, address } = this.formGroup.value as SignupFormValue;
+    const { zipcode, detail } = address;
+    const signupReq: SignupReq = {
+      name,
+      email,
+      password,
+      phone,
+      birthday: `${year}/${month}/${day}`,
+      address: {
+        zipcode: +zipcode,
+        detail,
+      },
+    };
+
+    this.registerService.postSignup(signupReq).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

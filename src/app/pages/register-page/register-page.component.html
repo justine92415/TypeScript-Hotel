@@ -40,7 +40,7 @@
           </div>
           <app-checkbox [formControlName]="'isReaded'">我已閱讀並同意本網站個資使用規範</app-checkbox>
         </div>
-        <app-button class="mb-4" [disabled]="this.formGroup.invalid || !this.formGroup.controls.isReaded.value">完成註冊</app-button>
+        <app-button class="mb-4" [disabled]="this.formGroup.invalid || !this.formGroup.controls.isReaded.value" (clickEvent)="onSubmit()">完成註冊</app-button>
       }
       <pre class="text-white">
         {{ formGroup.value | json }}
