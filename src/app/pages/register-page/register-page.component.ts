@@ -4,10 +4,18 @@ import { CheckboxComponent } from '../../components/checkbox/checkbox.component'
 import { InputComponent } from '../../components/input/input.component';
 import { StepperComponent } from '../../components/stepper/stepper.component';
 import { SelectComponent, SelectOption } from '../../components/select/select.component';
-import { AbstractControl, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { Stepper } from '../../model/Stepper';
 import { cities } from '../../../assets/taiwan-zip-code';
+import { SignupForm } from '../../model/Form';
+import {
+  emailValidator,
+  passwordValidator,
+  phoneValidator,
+  repetPasswordValidator,
+  requiredValidator,
+} from '../../validators';
 
 @Component({
   selector: 'app-register-page',
@@ -26,7 +34,7 @@ import { cities } from '../../../assets/taiwan-zip-code';
 })
 export default class RegisterPageComponent {
   fb = inject(FormBuilder);
-  currentStep: WritableSignal<number> = signal(2);
+  currentStep: WritableSignal<number> = signal(1);
   stepperArray: WritableSignal<Stepper[]> = signal<Stepper[]>([
     {
       step: 1,
@@ -41,33 +49,16 @@ export default class RegisterPageComponent {
   ]);
   yearList!: SelectOption[];
   monthList!: SelectOption[];
-  dayList: WritableSignal<SelectOption[]> = signal([]);
+  dayList: SelectOption[] = [];
 
   cityList!: SelectOption[];
   regionList!: SelectOption[];
 
-  // regionList:Signal<SelectOption> = computed<SelectOption[]> (()=>{
-  //   const city = this.formGroup.get('address')?.get('city')?.value;
-  //   return this.cityList.value.filter((cityOption) => cityOption.value === city)[0].children;
-  // })
-
-  formGroup = this.fb.group({
-    name: this.fb.control('', { nonNullable: true }),
-    email: this.fb.control('', { nonNullable: true, validators: this.emailValidator() })!,
-    password: this.fb.control('', { nonNullable: true, validators: this.passwordValidator() }),
-    repeatPassword: this.fb.control('', { nonNullable: true, validators: this.repetPasswordValidator() }),
-    phone: this.fb.control('', { nonNullable: true }),
-    year: this.fb.control('1990', { nonNullable: true }),
-    month: this.fb.control('1', { nonNullable: true }),
-    day: this.fb.control('1', { nonNullable: true }),
-    address: this.fb.group({
-      city: this.fb.control('100', { nonNullable: true }),
-      zipcode: this.fb.control('104', { nonNullable: true }),
-      detail: this.fb.control('', { nonNullable: true }),
-    }),
-  });
+  formGroup!: FormGroup<SignupForm>;
 
   ngOnInit(): void {
+    this.initFormGroup();
+
     this.setYearList();
     this.setMonthList();
     this.setDayList(this.formGroup.controls.year.value, this.formGroup.controls.month.value);
@@ -76,54 +67,18 @@ export default class RegisterPageComponent {
 
     this.formGroup.controls.year.valueChanges.subscribe((year) => {
       this.setDayList(year, this.formGroup.controls.month.value);
-      this.formGroup.controls.day.setValue(this.dayList()[0].value);
+      this.formGroup.controls.day.setValue(this.dayList[0].value);
     });
 
     this.formGroup.controls.month.valueChanges.subscribe((month) => {
       this.setDayList(this.formGroup.controls.year.value, month);
-      this.formGroup.controls.day.setValue(this.dayList()[0].value);
+      this.formGroup.controls.day.setValue(this.dayList[0].value);
     });
 
     this.formGroup.controls.address.controls.city.valueChanges.subscribe((city) => {
       this.setRegionList(city);
       this.formGroup.controls.address.controls.zipcode.setValue(this.regionList[0].value);
     });
-  }
-
-  passwordValidator() {
-    return (control: AbstractControl) => {
-      const value = control.value;
-      if (!value) return { errorMsg: '請輸入密碼' };
-      const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-      if (!regex.test(value)) {
-        return { errorMsg: '密碼需包含大小寫英文及數字，且長度至少8個字元' };
-      }
-      return null;
-    };
-  }
-
-  repetPasswordValidator() {
-    return (control: AbstractControl) => {
-      const value = control.value;
-      if (!value) return { errorMsg: '請輸入密碼' };
-      const password = this.formGroup.get('password')?.value;
-      if (value !== password) {
-        return { errorMsg: '密碼不一致' };
-      }
-      return null;
-    };
-  }
-
-  emailValidator() {
-    return (control: AbstractControl) => {
-      const value = control.value;
-      if (!value) return { errorMsg: '請輸入信箱' };
-      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-      if (!regex.test(value)) {
-        return { errorMsg: '無效信箱格式' };
-      }
-      return null;
-    };
   }
 
   onNextStep(): void {
@@ -154,12 +109,10 @@ export default class RegisterPageComponent {
 
   setDayList(year: string, month: string): void {
     const day = new Date(Number(year), Number(month), 0).getDate();
-    this.dayList.set(
-      Array.from({ length: day }, (_, index) => ({
-        label: `${index + 1} 日`,
-        value: `${index + 1}`,
-      }))
-    );
+    this.dayList = Array.from({ length: day }, (_, index) => ({
+      label: `${index + 1} 日`,
+      value: `${index + 1}`,
+    }));
   }
 
   setCityList(): void {
@@ -178,5 +131,26 @@ export default class RegisterPageComponent {
           value: region.code.toString(),
         };
       });
+  }
+
+  initFormGroup(): void {
+    this.formGroup = this.fb.group<SignupForm>({
+      name: this.fb.control('', { nonNullable: true, validators: requiredValidator('請輸入姓名') }),
+      email: this.fb.control('', { nonNullable: true, validators: emailValidator() })!,
+      password: this.fb.control('', { nonNullable: true, validators: passwordValidator() }),
+      repeatPassword: this.fb.control('', { nonNullable: true }),
+      phone: this.fb.control('', { nonNullable: true, validators: phoneValidator() }),
+      year: this.fb.control('1990', { nonNullable: true }),
+      month: this.fb.control('1', { nonNullable: true }),
+      day: this.fb.control('1', { nonNullable: true }),
+      address: this.fb.group({
+        city: this.fb.control('100', { nonNullable: true }),
+        zipcode: this.fb.control('104', { nonNullable: true }),
+        detail: this.fb.control('', { nonNullable: true, validators: requiredValidator('請輸入地址') }),
+      }),
+      isReaded: this.fb.control(false, { nonNullable: true }),
+    });
+
+    this.formGroup.controls.repeatPassword.setValidators(repetPasswordValidator(this.formGroup));
   }
 }

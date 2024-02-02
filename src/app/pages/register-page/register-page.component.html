@@ -27,7 +27,7 @@
             <div class="flex gap-3">
               <app-select class="w-1/3" [formGroup]="formGroup" [name]="'year'" [formControlName]="'year'" [options]="yearList"></app-select>
               <app-select class="w-1/3" [formGroup]="formGroup" [name]="'month'" [formControlName]="'month'" [options]="monthList"></app-select>
-              <app-select class="w-1/3" [formGroup]="formGroup" [name]="'day'" [formControlName]="'day'" [options]="dayList()"></app-select>
+              <app-select class="w-1/3" [formGroup]="formGroup" [name]="'day'" [formControlName]="'day'" [options]="dayList"></app-select>
             </div>
           </div>
           <div [formGroup]="formGroup.controls.address">
@@ -38,9 +38,9 @@
             </div>
             <app-input [formGroup]="formGroup.controls.address" [name]="'detail'" [formControlName]="'detail'" class="text-white" [placeholder]="'請輸入詳細地址'"></app-input>
           </div>
-          <app-checkbox>我已閱讀並同意本網站個資使用規範</app-checkbox>
+          <app-checkbox [formControlName]="'isReaded'">我已閱讀並同意本網站個資使用規範</app-checkbox>
         </div>
-        <app-button class="mb-4">完成註冊</app-button>
+        <app-button class="mb-4" [disabled]="this.formGroup.invalid || !this.formGroup.controls.isReaded.value">完成註冊</app-button>
       }
       <pre class="text-white">
         {{ formGroup.value | json }}
