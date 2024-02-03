@@ -17,7 +17,9 @@ import {
   requiredValidator,
 } from '../../validators';
 import { RegisterService } from '../../services/register.service';
-import { SignupReq } from '../../model/Signup';
+import { SignupReq, SignupRes } from '../../model/Signup';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-register-page',
@@ -57,6 +59,7 @@ export default class RegisterPageComponent {
 
   fb = inject(FormBuilder);
   registerService = inject(RegisterService);
+  router = inject(Router);
 
   ngOnInit(): void {
     this.initFormGroup();
@@ -171,8 +174,16 @@ export default class RegisterPageComponent {
       },
     };
 
-    this.registerService.postSignup(signupReq).subscribe((res) => {
-      console.log(res);
+    this.registerService.postSignup(signupReq).subscribe({
+      next: (res: SignupRes) => {
+        console.log(res);
+        if (res.status) {
+          this.router.navigate(['/login']);
+        }
+      },
+      error: (err: HttpErrorResponse) => {
+        alert(err.error.message);
+      },
     });
   }
 }

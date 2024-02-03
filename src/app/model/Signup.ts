@@ -1,13 +1,19 @@
+import { Result } from "./Common";
+
 export type SignupReq = {
   name: string;
   email: string;
   password: string;
   phone: string;
   birthday: string;
-  address: Address;
+  address: {
+    zipcode: number;
+    detail: string;
+  };
 };
 
-export type Address = {
-  zipcode: number;
-  detail: string;
-}
+export type SignupRes = {
+  status: boolean;
+  token: string;
+  result: Result;
+};
