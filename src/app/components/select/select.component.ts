@@ -8,8 +8,6 @@ import {
   signal,
   Input,
   forwardRef,
-  EventEmitter,
-  Output,
 } from '@angular/core';
 import { OverlayModule, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';

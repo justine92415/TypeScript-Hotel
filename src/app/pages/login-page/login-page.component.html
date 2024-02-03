@@ -20,9 +20,9 @@
         </pre>
       </div>
       <app-button class="mb-10" [disabled]="formGroup.invalid" (clickEvent)="login()">會員登入</app-button>
-      <div class="flex items-center gap-2">
-        <p class="text-white">沒有會員嗎？</p>
-        <app-button [buttonType]="'text'">前往註冊</app-button>
+      <div class="flex items-center gap-2 text-white">
+        <p>沒有會員嗎？</p>
+        <app-button [buttonType]="'text'" (click)="routerPage()">前往註冊</app-button>
       </div>
     </div>
   </div>

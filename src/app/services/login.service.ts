@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, WritableSignal, computed, inject, signal } from '@angular/core';
 import { LoginReq, LoginRes } from '../model/Login';
-import { Observable, shareReplay, tap } from 'rxjs';
-import { User } from '../model/Common';
+import { Observable, catchError, shareReplay, tap, throwError } from 'rxjs';
+import { BaseRes, User } from '../model/Common';
 
 @Injectable({
   providedIn: 'root',
@@ -23,11 +23,39 @@ export class LoginService {
           };
         });
         if (isRecord) {
-          localStorage.setItem('email', loginReq.email);
+          localStorage.setItem('record', JSON.stringify({ isRecord, email: loginReq.email }));
+        } else {
+          localStorage.removeItem('record');
         }
         localStorage.setItem('token', res.token);
       }),
       shareReplay()
     );
+  }
+
+  getUser(): Observable<BaseRes<User>> | null {
+    if (!localStorage.getItem('token')) return null;
+    return this.httpClient.get<BaseRes<User>>('https://freyja-gek5.onrender.com/api/v1/user').pipe(
+      tap((userRes) => {
+        this.user.update((user) => {
+          return {
+            ...user,
+            ...userRes.result,
+          };
+        });
+        console.log(this.user());
+      }),
+      catchError(() => this.catchAuthError()),
+      shareReplay()
+    );
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    this.user.set(null);
+  }
+
+  catchAuthError(): Observable<BaseRes<User>> {
+    return throwError(() => this.logout());
   }
 }

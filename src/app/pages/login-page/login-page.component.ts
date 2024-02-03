@@ -24,12 +24,20 @@ export default class LoginPageComponent implements OnInit {
   router = inject(Router);
 
   formGroup = this.fb.group<LoginForm>({
-    email: this.fb.control('test@gmail.com', { nonNullable: true, validators: emailValidator() }),
-    password: this.fb.control('1qazXSW2', { nonNullable: true, validators: requiredValidator('請輸入密碼') }),
+    email: this.fb.control('', { nonNullable: true, validators: emailValidator() }),
+    password: this.fb.control('', { nonNullable: true, validators: requiredValidator('請輸入密碼') }),
     recordEmail: this.fb.control(false, { nonNullable: true }),
   });
 
-  ngOnInit() {}
+  ngOnInit() {
+    if(!!localStorage.getItem('record')){
+      const record = JSON.parse(localStorage.getItem('record') as string);
+      this.formGroup.patchValue({
+        email: record.email,
+        recordEmail: record.isRecord,
+      });
+    }
+  }
 
   login(): void {
     const { email, password, recordEmail } = this.formGroup.value as LoginFormValue;
@@ -47,5 +55,9 @@ export default class LoginPageComponent implements OnInit {
         alert(err.error.message);
       },
     });
+  }
+
+  routerPage():void{
+    this.router.navigate(['/register']);
   }
 }

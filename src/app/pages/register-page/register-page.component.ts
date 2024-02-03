@@ -186,4 +186,8 @@ export default class RegisterPageComponent {
       },
     });
   }
+
+  routerPage(): void {
+    this.router.navigate(['/login']);
+  }
 }
