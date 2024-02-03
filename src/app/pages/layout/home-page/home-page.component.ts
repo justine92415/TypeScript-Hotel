@@ -13,7 +13,4 @@ import { Icon } from '../../../model/Icon';
   styleUrl: './home-page.component.scss'
 })
 export default class HomePageComponent {
-  get Icon() {
-    return Icon;
-  }
 }

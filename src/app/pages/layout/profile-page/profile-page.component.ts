@@ -18,8 +18,4 @@ export default class ProfilePageComponent {
   currentTab: 'profile' | 'order' = 'order';
   changePassword = false;
   editProfile = false;
-
-  get Icon(): typeof Icon {
-    return Icon;
-  }
 }

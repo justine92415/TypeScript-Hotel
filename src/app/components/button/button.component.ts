@@ -10,7 +10,8 @@ import { Icon } from '../../model/Icon';
 })
 export class ButtonComponent {
   @Input() buttonType: 'primary' | 'secondary' | 'ghost' | 'text' = 'primary';
-  @Input() iconName?: Icon;
+  @Input() rightIcon?: Icon;
+  @Input() leftIcon?: Icon;
   @Input() disabled = false;
 
   @Output() clickEvent: EventEmitter<MouseEvent> = new EventEmitter();

@@ -1,8 +1,11 @@
 <button class="w-full justify-center" [class]="buttonClass[buttonType]" [disabled]="disabled" (click)="onClick()">
+  @if(buttonType !== 'text' && (!!leftIcon)){
+    <span class="icon-ic_{{ leftIcon }}"></span>
+  }
   <p class="font-bold tracking-[0.32px]">
     <ng-content></ng-content>
   </p>
-  @if(buttonType !== 'text' && !!iconName){
-    <span class="icon-ic_{{ iconName }}"></span>
+  @if(buttonType !== 'text' && (!!rightIcon)){
+    <span class="icon-ic_{{ rightIcon }}"></span>
   }
 </button>

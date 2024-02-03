@@ -29,7 +29,4 @@ import { Icon } from '../../model/Icon';
   styleUrl: './components-demo.component.scss',
 })
 export class ComponentsDemoComponent {
-  get Icon(): typeof Icon {
-    return Icon;
-  }
 }

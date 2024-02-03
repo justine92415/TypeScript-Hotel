@@ -1,3 +1,4 @@
+import { Icon } from './../../model/Icon';
 import { Component, OnInit, inject } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { NavigationEnd, Router } from '@angular/router';
@@ -22,8 +23,9 @@ import { filter } from 'rxjs';
       />
       <div class="flex items-center gap-4">
         <app-button [buttonType]="'ghost'" (click)="routerPage('rooms')">客房旅宿</app-button>
-        <app-button [buttonType]="'ghost'" (click)="routerPage('login')">會員登入</app-button>
-        <app-button [buttonType]="'primary'" (click)="routerPage('order')">立即訂房</app-button>
+        <!-- <app-button [buttonType]="'ghost'" (click)="routerPage('login')">會員登入</app-button> -->
+        <app-button [buttonType]="'ghost'" [leftIcon]="'profile'">會員登入</app-button>
+        <app-button [buttonType]="'primary'" (click)="routerPage('rooms')">立即訂房</app-button>
       </div>
     </header>
   `,
