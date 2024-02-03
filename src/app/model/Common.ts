@@ -1,10 +1,9 @@
 export interface BaseRes<T> {
   status: boolean;
-  token: string;
   result: T;
 }
 
-export interface Result {
+export type User = {
   address: Address;
   _id: string;
   name: string;

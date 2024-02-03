@@ -23,7 +23,6 @@ export class InputComponent implements ControlValueAccessor {
   @Input() title!: string;
   @Input() required: boolean = false;
   @Input() placeholder: string = '';
-  @Input() valided: boolean = true;
 
   control: FormControl = new FormControl();
   onTouched: any = () => {};

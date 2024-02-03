@@ -16,14 +16,14 @@ import { filter } from 'rxjs';
     >
       <img
         class="w-[12.25rem] h-[4.5rem] cursor-pointer"
-        (click)="test('home')"
+        (click)="routerPage('/')"
         src="/assets/images/desktop/logo.png"
         alt=""
       />
       <div class="flex items-center gap-4">
-        <app-button [buttonType]="'ghost'" (click)="test('rooms')">客房旅宿</app-button>
-        <app-button [buttonType]="'ghost'">會員登入</app-button>
-        <app-button [buttonType]="'primary'">立即訂房</app-button>
+        <app-button [buttonType]="'ghost'" (click)="routerPage('rooms')">客房旅宿</app-button>
+        <app-button [buttonType]="'ghost'" (click)="routerPage('login')">會員登入</app-button>
+        <app-button [buttonType]="'primary'" (click)="routerPage('order')">立即訂房</app-button>
       </div>
     </header>
   `,
@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  test(path: string): void {
+  routerPage(path: string): void {
     this.router.navigate([path]);
   }
 }

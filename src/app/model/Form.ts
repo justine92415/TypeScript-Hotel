@@ -34,3 +34,12 @@ export type SignupForm = {
   isReaded: FormControl<boolean>;
 };
 
+export type LoginFormValue = {
+  email: string;
+  password: string;
+  recordEmail: boolean;
+};
+
+export type LoginForm = {
+  [key in keyof LoginFormValue]: FormControl<LoginFormValue[key]>;
+};

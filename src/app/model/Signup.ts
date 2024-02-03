@@ -1,4 +1,4 @@
-import { Result } from "./Common";
+import { BaseRes, User } from './Common';
 
 export type SignupReq = {
   name: string;
@@ -12,8 +12,6 @@ export type SignupReq = {
   };
 };
 
-export type SignupRes = {
-  status: boolean;
+export interface SignupRes extends BaseRes<User> {
   token: string;
-  result: Result;
-};
+}

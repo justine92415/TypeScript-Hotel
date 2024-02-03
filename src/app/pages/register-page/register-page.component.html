@@ -13,7 +13,7 @@
       </div>
       @if (currentStep() === 1) {
         <form [formGroup]="formGroup" class="flex flex-col gap-4 mb-10">
-          <app-input [formGroup]="formGroup" [name]="'email'" [type]="'email'" [formControlName]="'email'" class="text-white" [title]="'電子信箱'" [valided]="formGroup.controls['email'].valid" [placeholder]="'hello@exsample.com'"></app-input>
+          <app-input [formGroup]="formGroup" [name]="'email'" [type]="'email'" [formControlName]="'email'" class="text-white" [title]="'電子信箱'" [placeholder]="'hello@exsample.com'"></app-input>
           <app-input [formGroup]="formGroup" [name]="'password'" [type]="'password'" [formControlName]="'password'" class="text-white" [title]="'密碼'" [placeholder]="'請輸入密碼'"></app-input>
           <app-input [formGroup]="formGroup" [name]="'repeatPassword'" [type]="'password'" [formControlName]="'repeatPassword'" class="text-white" [title]="'確認密碼'" [placeholder]="'請再輸入一次密碼'"></app-input>
         </form>
