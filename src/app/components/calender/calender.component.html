@@ -1,7 +1,7 @@
 <div class="flex items-center gap-[3.75rem]">
-  <div class="w-[19.25rem] h-[19.75rem]">
+  <div class="w-[19.25rem] h-[22.5rem]">
     <div class="flex mb-2">
-      <span class="icon-ic_left cursor-pointer" (click)="onClickPreMounth()"></span>
+      <span class="icon-ic_left cursor-pointer" [ngClass]="{'invisible':isToday()}" (click)="onClickPreMounth()"></span>
       <div class="w-full flex justify-center">
         <p class="text-xl leading-6 font-bold tracking-[1px]">{{ currentYear() }} 年 {{ currentMonth() }} 月</p>
       </div>
@@ -16,14 +16,24 @@
     @for(week of dates; track $index) {
       <div class="w-full justify-between flex mb-1">
         @for(days of week; track $index) {
-          <div class="w-full px-3 pt-2 pb-4 h-11 text-center" [ngClass]="{ 'bg-black rounded-[100px] text-white': false }">
-            {{ days }}
+          <div
+            class="w-full px-3 pt-2 pb-4 h-11 text-center"
+            [ngClass]="
+              {
+                'bg-black rounded-[100px] text-white': selectedDate().includes(days.formatDate),
+                'cursor-pointer': !!days,
+                'bg-black-10': inDateRange(days) && !selectedDate().includes(days.formatDate),
+                'cursor-no-drop text-black-40':days.isDisabled || smallthenStartDate(days)
+              }"
+              (click)="selectDate(days)
+          ">
+            {{ days.date | date: 'd'}}
           </div>
         }
       </div>
     }
   </div>
-  <div class="w-[19.25rem] h-[19.75rem]">
+  <div class="w-[19.25rem] h-[22.5rem]">
     <div class="flex mb-2">
       <div class="w-full flex justify-center">
         <p class="text-xl leading-6 font-bold tracking-[1px]">{{ nextYear() }} 年 {{ nextMounth() }} 月</p>
@@ -40,8 +50,18 @@
     @for(week of dates2; track $index) {
       <div class="w-full justify-between flex mb-1">
         @for(days of week; track $index) {
-          <div class="w-full px-3 pt-2 pb-4 h-11 text-center" [ngClass]="{ 'bg-black rounded-[100px] text-white': false }">
-            {{ days }}
+          <div
+            class="w-full px-3 pt-2 pb-4 h-11 text-center"
+            [ngClass]="
+              {
+                'bg-black rounded-[100px] text-white': selectedDate().includes(days.formatDate),
+                'cursor-pointer': !!days,
+                'bg-black-10': inDateRange(days) && !selectedDate().includes(days.formatDate),
+                'cursor-no-drop text-black-40':days.isDisabled || smallthenStartDate(days)
+              }"
+              (click)="selectDate(days)
+          ">
+            {{ days.date | date: 'd'}}
           </div>
         }
       </div>

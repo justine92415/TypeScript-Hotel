@@ -1,21 +1,24 @@
 <div class="flex items-center gap-2 relative z-20">
-  <app-date-picker-input class="w-[12.25rem] relative z-20" [title]="'title'" (click)="onClickDatePicker()"></app-date-picker-input>
-  <app-date-picker-input class="w-[12.25rem] relative z-20" [title]="'title'" (click)="onClickDatePicker()"></app-date-picker-input>
+  <app-date-picker-input class="w-[12.25rem] relative z-20" [title]="'入住'" (click)="onClickDatePicker()" [placeholder]="'請選擇入住日期'" [date]="selectedDate()[0]"></app-date-picker-input>
+  <app-date-picker-input class="w-[12.25rem] relative z-20" [title]="'退房'" (click)="onClickDatePicker()" [placeholder]="'請選擇退房日期'" [date]="selectedDate()[1]"></app-date-picker-input>
   @if(isOpen){
     <div class="w-[46.25rem] p-8 rounded-[1.25rem] bg-white absolute top-[-32px] right-[-32px] z-10">
       <div class="flex items-center justify-between mb-10">
         <div>
-          <p class="text-2xl leading-[28.80px] tracking-[1.2px] text-black font-bold mb-2">Title</p>
+          <p class="text-2xl leading-[28.80px] tracking-[1.2px] text-black font-bold mb-2">{{datePickerService.dateDifferent()}} 晚</p>
           <div class="flex items-center">
-            <p class="text-black-80 text-base font-medium tracking-[0.32px]">2023/ 12 / 03</p>
-            <p class="text-black-80 text-base font-medium tracking-[0.32px]">-</p>
-            <p class="text-black-80 text-base font-medium tracking-[0.32px]">2023/ 12 / 04</p>
+            <p class="text-black-80 text-base font-medium tracking-[0.32px]">{{ selectedDate()[0] | date:'yyyy / MM / dd' }}</p>
+            <p class="text-black-80 text-base font-medium tracking-[0.32px]"> {{' - '}} </p>
+            <p class="text-black-80 text-base font-medium tracking-[0.32px]">{{ selectedDate()[1] | date:'yyyy / MM / dd' }}</p>
           </div>
         </div>
       </div>
-      <app-calender></app-calender>
+      <app-calender class="mb-10"></app-calender>
+      <div class="flex items-center justify-end gap-4">
+        <app-button class="w-[6.125rem] text-black-80" [buttonType]="'ghost'"  (clickEvent)="clearDate()">清除日期</app-button>
+        <app-button class="w-[8.125rem]" [buttonType]="'primary'" (clickEvent)="isOpen = false">確定日期</app-button>
+      </div>
     </div>
   }
 </div>
 <div class="mask"></div>
-

@@ -1,11 +1,10 @@
 <header class="flex items-center justify-between px-20 py-6 bg-black">
   <img class="w-[12.25rem] h-[4.5rem]" src="./assets/images/desktop/logo.png" alt="" />
   <div  class="block text-white lg:hidden">
-    <app-button [buttonType]="'ghost'" [rightIcon]="'menu'" [iconSize]="'md'" (clickEvent)="isOpenMenu = true"></app-button>
+    <app-button class="text-white" [buttonType]="'ghost'" [rightIcon]="'menu'" [iconSize]="'md'" (clickEvent)="isOpenMenu = true"></app-button>
   </div>
 </header>
 <div class="bg-black h-screen relative overflow-x-hidden">
-  <!-- w-[67.5rem  translate-x-[250px]-->
   <img class="w-full h-[11.75rem] absolute top-[4.5rem] right-0  z-10" src="./assets/images/desktop/line2.png" alt="">
   <div class="flex h-full items-center relative z-20">
     <div class="hidden w-[55%] h-full bg-center bg-cover bg-[url('./assets/images/desktop/register.png')] lg:block"></div>
@@ -31,10 +30,10 @@
 
 @if(isOpenMenu){
   <div class="flex items-center justify-center absolute w-full h-screen bg-black z-50 top-0 left-0 lg:hidden">
-    <app-button class="absolute top-5 right-5" [buttonType]="'ghost'" [rightIcon]="'close'" [iconSize]="'md'" (clickEvent)="isOpenMenu = false"></app-button>
+    <app-button class="absolute top-5 right-5 text-white" [buttonType]="'ghost'" [rightIcon]="'close'" [iconSize]="'md'" (clickEvent)="isOpenMenu = false"></app-button>
     <div class="w-full flex flex-col px-5 items-center gap-4">
-      <app-button [buttonType]="'ghost'" (click)="routerPage('/rooms')">客房旅宿</app-button>
-      <app-button [buttonType]="'ghost'" (click)="routerPage('/login')">會員登入</app-button>
+      <app-button class="text-white" [buttonType]="'ghost'" (click)="routerPage('/rooms')">客房旅宿</app-button>
+      <app-button class="text-white" [buttonType]="'ghost'" (click)="routerPage('/login')">會員登入</app-button>
       <app-button class="w-full" [buttonType]="'primary'" (click)="routerPage('/rooms')">立即訂房</app-button>
     </div>
   </div>

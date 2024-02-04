@@ -11,13 +11,13 @@
     alt=""
   />
   <div class="flex items-center gap-4">
-    <app-button [buttonType]="'ghost'" (click)="routerPage('rooms')">客房旅宿</app-button>
+    <app-button class="text-white" [buttonType]="'ghost'" (click)="routerPage('rooms')">客房旅宿</app-button>
     @if(loginService.isLoggedIn()){
       <div #profileBtn>
-        <app-button [buttonType]="'ghost'" [leftIcon]="'profile'" (click)="openDropdown()">{{loginService.user()!.name}}</app-button>
+        <app-button class="text-white" [buttonType]="'ghost'" [leftIcon]="'profile'" (click)="openDropdown()">{{loginService.user()!.name}}</app-button>
       </div>
     }
-    @if(loginService.isLoggedOut()){<app-button [buttonType]="'ghost'" (click)="routerPage('login')">會員登入</app-button>}
+    @if(loginService.isLoggedOut()){<app-button class="text-white" [buttonType]="'ghost'" (click)="routerPage('login')">會員登入</app-button>}
     <app-button [buttonType]="'primary'" (click)="routerPage('rooms')">立即訂房</app-button>
   </div>
 </header>

@@ -142,18 +142,18 @@ export default class RegisterPageComponent {
 
   initFormGroup(): void {
     this.formGroup = this.fb.group<SignupForm>({
-      name: this.fb.control('王大明', { nonNullable: true, validators: requiredValidator('請輸入姓名') }),
-      email: this.fb.control('test@gmail.com', { nonNullable: true, validators: emailValidator() })!,
-      password: this.fb.control('1qazXSW2', { nonNullable: true, validators: passwordValidator() }),
-      repeatPassword: this.fb.control('1qazXSW2', { nonNullable: true }),
-      phone: this.fb.control('0987654321', { nonNullable: true, validators: phoneValidator() }),
+      name: this.fb.control('', { nonNullable: true, validators: requiredValidator('請輸入姓名') }),
+      email: this.fb.control('', { nonNullable: true, validators: emailValidator() })!,
+      password: this.fb.control('', { nonNullable: true, validators: passwordValidator() }),
+      repeatPassword: this.fb.control('', { nonNullable: true }),
+      phone: this.fb.control('', { nonNullable: true, validators: phoneValidator() }),
       year: this.fb.control('1990', { nonNullable: true }),
       month: this.fb.control('1', { nonNullable: true }),
       day: this.fb.control('1', { nonNullable: true }),
       address: this.fb.group({
         city: this.fb.control('100', { nonNullable: true }),
         zipcode: this.fb.control('104', { nonNullable: true }),
-        detail: this.fb.control('全家就是你家', { nonNullable: true, validators: requiredValidator('請輸入地址') }),
+        detail: this.fb.control('', { nonNullable: true, validators: requiredValidator('請輸入地址') }),
       }),
       isReaded: this.fb.control(false, { nonNullable: true }),
     });
