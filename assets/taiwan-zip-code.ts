@@ -1,6 +1,6 @@
 export const cities = [
   {
-    name: '台北市',
+    name: '臺北市',
     code: 100,
     region: [
       {
@@ -398,7 +398,7 @@ export const cities = [
     ],
   },
   {
-    name: '台中市',
+    name: '臺中市',
     code: 400,
     region: [
       {
@@ -852,7 +852,7 @@ export const cities = [
     ],
   },
   {
-    name: '台南市',
+    name: '臺南市',
     code: 700,
     region: [
       {
@@ -1394,7 +1394,7 @@ export const cities = [
     ],
   },
   {
-    name: '台東縣',
+    name: '臺東縣',
     code: 950,
     region: [
       {
