@@ -178,7 +178,6 @@ export default class RegisterPageComponent {
 
     this.registerService.postSignup(signupReq).subscribe({
       next: (res: SignupRes) => {
-        console.log(res);
         if (res.status) {
           this.router.navigate(['/login']);
         }

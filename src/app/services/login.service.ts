@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, WritableSignal, computed, inject, signal } from '@angular/core';
+import { Injectable, Signal, WritableSignal, computed, inject, signal } from '@angular/core';
 import { LoginReq, LoginRes } from '../model/Login';
 import { Observable, catchError, shareReplay, tap, throwError } from 'rxjs';
 import { BaseRes, User } from '../model/Common';
@@ -9,6 +9,7 @@ import { BaseRes, User } from '../model/Common';
 })
 export class LoginService {
   user: WritableSignal<User | null> = signal<User | null>(null);
+  userInfo:Signal<User | null> = computed(() => this.user());
   isLoggedIn = computed(() => this.user() !== null);
   isLoggedOut = computed(() => this.user() === null);
   httpClient = inject(HttpClient);
@@ -36,15 +37,15 @@ export class LoginService {
   getUser(): Observable<BaseRes<User>> | null {
     if (!localStorage.getItem('token')) return null;
     return this.httpClient.get<BaseRes<User>>('https://freyja-gek5.onrender.com/api/v1/user').pipe(
-      tap((userRes) => {
-        this.user.update((user) => {
-          return {
-            ...user,
-            ...userRes.result,
-          };
-        });
-        console.log(this.user());
-      }),
+      // tap((userRes) => {
+      //   this.user.update((user) => {
+      //     return {
+      //       ...user,
+      //       ...userRes.result,
+      //     };
+      //   });
+      //   console.log(this.user());
+      // }),
       catchError(() => this.catchAuthError()),
       shareReplay()
     );

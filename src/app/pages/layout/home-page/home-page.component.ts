@@ -4,7 +4,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { HeaderComponent } from '../../../components/header/header.component';
 import { ButtonHeroComponent } from '../../../components/button-hero/button-hero.component';
 import { ButtonComponent } from '../../../components/button/button.component';
-import { Icon } from '../../../model/Icon';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -15,8 +15,12 @@ import { Icon } from '../../../model/Icon';
 })
 export default class HomePageComponent implements OnInit {
   loginService = inject(LoginService);
-
+  router = inject(Router);
   ngOnInit(): void {
     this.loginService.getUser()?.subscribe();
+  }
+
+  routerPage(): void {
+    this.router.navigate(['/rooms']);
   }
 }

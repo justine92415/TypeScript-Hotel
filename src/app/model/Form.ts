@@ -1,4 +1,5 @@
 import { FormControl, FormGroup } from '@angular/forms';
+import { Address } from './Common';
 
 export type SignupFormValue = {
   name: string;
@@ -42,4 +43,30 @@ export type LoginFormValue = {
 
 export type LoginForm = {
   [key in keyof LoginFormValue]: FormControl<LoginFormValue[key]>;
+};
+
+export interface OrderValue {
+  roomId: string;
+  checkInDate: string;
+  checkOutDate: string;
+  peopleNum: number;
+  userInfo: UserInfo;
+}
+
+export type UserInfo = {
+  address: Address;
+  name: string;
+  phone: string;
+  email: string;
+};
+
+export type UserInfoForm = {
+  address: FormGroup<{
+    city: FormControl<string>;
+    zipcode: FormControl<string>;
+    detail: FormControl<string>;
+  }>;
+  name: FormControl<string>;
+  phone: FormControl<string>;
+  email: FormControl<string>;
 };

@@ -6,6 +6,14 @@ import { Injectable, Signal, WritableSignal, computed, signal } from '@angular/c
 export class DatePickerService {
   private selectedDate: WritableSignal<[string | null, string | null]> = signal([null, null]);
   selectedDateSig: Signal<[string | null, string | null]> = computed(() => this.selectedDate());
+  startDate: Signal<string | null> = computed(() => {
+    const [year, month, day] = this.selectedDate()[0]!.split('/');
+    return `${year}/${+month < 10 ? '0' + month : month}/${+day < 10 ? '0' + day : day}`;
+  });
+  endDate: Signal<string | null> = computed(() => {
+    const [year, month, day] = this.selectedDate()[1]!.split('/');
+    return `${year}/${+month < 10 ? '0' + month : month}/${+day < 10 ? '0' + day : day}`;
+  });
   dateDifferent: Signal<number> = computed(() => {
     if (this.selectedDate()[0] && this.selectedDate()[1]) {
       const date1 = new Date(this.selectedDate()[0] as string);
@@ -14,6 +22,7 @@ export class DatePickerService {
     }
     return 0;
   });
+  selectSuccess: Signal<boolean> = computed(() => this.selectedDate().every((date) => !!date));
 
   constructor() {}
 

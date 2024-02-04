@@ -15,11 +15,11 @@ export const routes: Routes = [
     loadComponent: () => import('./rooms-page/rooms-page.component'),
   },
   {
-    path:'detail',
+    path:'rooms/:id',
     loadComponent: () => import('./detail-page/detail-page.component'),
   },
   {
-    path:'confirm',
+    path:'confirm/:id',
     loadComponent: () => import('./confirm-page/confirm-page.component'),
   },
   {
@@ -29,7 +29,7 @@ export const routes: Routes = [
   {
     path:'profile',
     loadComponent: () => import('./profile-page/profile-page.component'),
-  }
+  },
 ];
 
 export default routes;

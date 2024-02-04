@@ -23,4 +23,9 @@ export const routes: Routes = [
     path: 'guideline',
     loadComponent: () => import('./pages/guideline/guideline.component').then((m) => m.GuidelineComponent),
   },
+  {
+    path:'**',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  }
 ];

@@ -1,0 +1,122 @@
+{
+  "name": "景觀尊榮家庭房",
+  "description": "景觀尊榮家庭房不僅有寬敞的空間，還有絕美的市景視野，是帶給家庭最尊榮的待遇。",
+  "imageUrl": "https://github.com/hexschool/2022-web-layout-training/blob/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room5-1.png?raw=true",
+  "imageUrlList": [
+    "https://github.com/hexschool/2022-web-layout-training/blob/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room5-1.png?raw=true",
+    "https://github.com/hexschool/2022-web-layout-training/blob/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room5-2.png?raw=true",
+    "https://github.com/hexschool/2022-web-layout-training/blob/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room5-3.png?raw=true",
+    "https://github.com/hexschool/2022-web-layout-training/blob/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room5-4.png?raw=true",
+    "https://github.com/hexschool/2022-web-layout-training/blob/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room5-5.png?raw=true"
+  ],
+  "areaInfo": "48坪",
+  "bedInfo": "2張大床",
+  "maxPeople": 4,
+  "price": 36000,
+  "layoutInfo": [
+    {
+      "title": "市景",
+      "isProvide": true
+    },
+    {
+      "title": "獨立衛浴",
+      "isProvide": true
+    },
+    {
+      "title": "客廳",
+      "isProvide": true
+    },
+    {
+      "title": "書房",
+      "isProvide": true
+    },
+    {
+      "title": "樓層電梯",
+      "isProvide": true
+    }
+  ],
+  "facilityInfo": [
+    {
+      "title": "平面電視",
+      "isProvide": true
+    },
+    {
+      "title": "吹風機",
+      "isProvide": true
+    },
+    {
+      "title": "冰箱",
+      "isProvide": true
+    },
+    {
+      "title": "熱水壺",
+      "isProvide": true
+    },
+    {
+      "title": "檯燈",
+      "isProvide": true
+    },
+    {
+      "title": "衣櫃",
+      "isProvide": true
+    },
+    {
+      "title": "除濕機",
+      "isProvide": true
+    },
+    {
+      "title": "浴缸",
+      "isProvide": true
+    },
+    {
+      "title": "書桌",
+      "isProvide": true
+    },
+    {
+      "title": "音響",
+      "isProvide": true
+    }
+  ],
+  "amenityInfo": [
+    {
+      "title": "衛生紙",
+      "isProvide": true
+    },
+    {
+      "title": "毛巾",
+      "isProvide": true
+    },
+    {
+      "title": "浴巾",
+      "isProvide": true
+    },
+    {
+      "title": "牙刷",
+      "isProvide": true
+    },
+    {
+      "title": "牙膏",
+      "isProvide": true
+    },
+    {
+      "title": "洗髮精",
+      "isProvide": true
+    },
+    {
+      "title": "沐浴乳",
+      "isProvide": true
+    },
+    {
+      "title": "拖鞋",
+      "isProvide": true
+    },
+    {
+      "title": "吹風機",
+      "isProvide": true
+    },
+    {
+      "title": "洗手乳",
+      "isProvide": true
+    }
+  ]
+}
