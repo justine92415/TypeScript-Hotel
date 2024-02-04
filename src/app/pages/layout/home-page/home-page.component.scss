@@ -1,5 +1,5 @@
 .about {
-  background-image: url("/assets/images/desktop/about.png");
+  background-image: url('../../../../assets/images/desktop/about.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 42rem;
@@ -7,7 +7,7 @@
 }
 
 .banner {
-  background-image: url("/assets/images/desktop/banner.png");
+  background-image: url("../../../../assets/images/desktop/banner.png");
   height: 100vh;
   position: relative;
 }
