@@ -4,7 +4,7 @@
 
 實作功能：註冊、登入、訂房功能
 
-###### GitHub Pages：[](https://justine92415.github.io/TypeScript-Hotel/)
+###### GitHub Pages：[連結](https://justine92415.github.io/TypeScript-Hotel/)
 
 ## 專案結構
 
@@ -19,6 +19,7 @@
 - Angular 17
 - Standalone Component
 - 一點點的 Signal
+- RxJs
 - Control Flow 語法
 - Angular material
 - Control Value Accessor 客製表單元件（輸入框、下拉選單、checkbox）
