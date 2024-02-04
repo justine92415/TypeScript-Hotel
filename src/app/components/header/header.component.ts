@@ -10,38 +10,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
   selector: 'app-header',
   standalone: true,
   imports: [ButtonComponent,OverlayModule],
-  template: `
-    <header
-      class="absolute z-50 w-full bg-black px-20 py-6 flex justify-between items-center"
-      [class]="{
-      'bg-transparent': currentPage === 'home' || currentPage === 'rooms',
-     }"
-    >
-      <img
-        class="w-[12.25rem] h-[4.5rem] cursor-pointer"
-        (click)="routerPage('/home')"
-        src="/assets/images/desktop/logo.png"
-        alt=""
-      />
-      <div class="flex items-center gap-4">
-        <app-button [buttonType]="'ghost'" (click)="routerPage('rooms')">客房旅宿</app-button>
-        @if(loginService.isLoggedIn()){
-          <div #profileBtn>
-            <app-button [buttonType]="'ghost'" [leftIcon]="'profile'" (click)="openDropdown()">{{loginService.user()!.name}}</app-button>
-          </div>
-        }
-        @if(loginService.isLoggedOut()){<app-button [buttonType]="'ghost'" (click)="routerPage('login')">會員登入</app-button>}
-        <app-button [buttonType]="'primary'" (click)="routerPage('rooms')">立即訂房</app-button>
-      </div>
-    </header>
-
-    <ng-template #dropdown>
-      <ul class="w-[16.25rem] py-3 bg-white rounded-[1.25rem] shadow-sm overflow-hidden translate-x-[110px]">
-        <li class="px-6 py-4 hover:text-primary-base hover:bg-[#F7F2EE] cursor-pointer" (click)="selectItem('profile')">我的帳戶</li>
-        <li class="px-6 py-4 hover:text-primary-base hover:bg-[#F7F2EE] cursor-pointer" (click)="selectItem('logout')">登出</li>
-      </ul>
-    </ng-template>
-  `,
+  templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
