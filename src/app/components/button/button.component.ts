@@ -13,6 +13,7 @@ export class ButtonComponent {
   @Input() rightIcon?: Icon;
   @Input() leftIcon?: Icon;
   @Input() disabled = false;
+  @Input() iconSize: 'sm' | 'base' | 'md' | 'lg' = 'base';
 
   @Output() clickEvent: EventEmitter<MouseEvent> = new EventEmitter();
 

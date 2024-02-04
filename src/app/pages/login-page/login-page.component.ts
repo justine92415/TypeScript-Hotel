@@ -22,6 +22,7 @@ export default class LoginPageComponent implements OnInit {
   fb = inject(FormBuilder);
   loginService = inject(LoginService);
   router = inject(Router);
+  isOpenMenu = false;
 
   formGroup = this.fb.group<LoginForm>({
     email: this.fb.control('', { nonNullable: true, validators: emailValidator() }),
@@ -57,7 +58,7 @@ export default class LoginPageComponent implements OnInit {
     });
   }
 
-  routerPage():void{
-    this.router.navigate(['/register']);
+  routerPage(path:string):void{
+    this.router.navigate([path]);
   }
 }

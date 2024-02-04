@@ -105,6 +105,10 @@ h6 {
   @apply text-[2.5rem] leading-[2.5rem];
 }
 
+.icon-size-base {
+  @apply text-[1.5rem] leading-[1.5rem];
+}
+
 .icon-size-sm {
   @apply text-base leading-[1rem];
 }

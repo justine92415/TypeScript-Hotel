@@ -56,6 +56,8 @@ export default class RegisterPageComponent {
   cityList!: SelectOption[];
   regionList!: SelectOption[];
   formGroup!: FormGroup<SignupForm>;
+  isOpenMenu = false;
+
 
   fb = inject(FormBuilder);
   registerService = inject(RegisterService);
@@ -187,7 +189,8 @@ export default class RegisterPageComponent {
     });
   }
 
-  routerPage(): void {
-    this.router.navigate(['/login']);
+  routerPage(path:string): void {
+    this.router.navigate([path]);
+    this.isOpenMenu = false;
   }
 }
